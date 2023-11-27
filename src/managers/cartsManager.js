@@ -26,9 +26,9 @@ class CartManager {
             return carts.find(cart => cart.id === id)
         }
 
-        addCarts = async (id) => {
+        addCarts = async () => {
             let cartsOld = await this.readCarts()
-            let cartsConcat = [{id : id, products : []}, ...cartsOld]
+            let cartsConcat = [{id : cartsOld.length+1, products : []}, ...cartsOld]
             await this.writeCarts(cartsConcat)
             return "Carrito agregado"
         }

@@ -5,7 +5,7 @@ const router = Router()
 const productsService = new ProductManager()
 
 router
-    //Buscando producto por ID
+    //Buscando producto 
     .get('/', async (req, res) => {
         const products = await productsService.getProducts()
         res.send({
@@ -30,7 +30,7 @@ router
     //Enviando, creando producto por ID
     .post('/', async (req, res) => {
         const newProduct = req.body
-            res.send(await productsService.writeFile(newProduct))      
+            res.send(await productsService.addProduct(newProduct))      
 } )
 
     //Modificando producto por ID
